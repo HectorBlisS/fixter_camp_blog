@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Blog mijo</title>
+</head>
+<body>
+	<h1>Bienvenido al blog de superheroes!</h1>
+
+	{%for entrada in entradas%}
+	<h2>{{entrada.titulo}}</h2>
+	<p>{{entrada.cuerpo}}</p>
+	<h4>{{entrada.fecha}}</h4>
+	{%empty%}
+	<h2>Aún no hay posts! :(</h2>
+	{%endfor%}
+
+
+</body>
+</html>
