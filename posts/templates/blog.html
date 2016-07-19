@@ -6,6 +6,7 @@
 	<h1>Bienvenido al blog de superheroes!</h1>
 
 	{%for entrada in entradas%}
+	<span>{{entrada.autor}}</span>
 	<h2>{{entrada.titulo}}</h2>
 	<p>{{entrada.cuerpo}}</p>
 	<h4>{{entrada.fecha}}</h4>
