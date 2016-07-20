@@ -1,9 +1,11 @@
-<html>
-<head>
-	<title>Blog mijo</title>
-</head>
-<body>
-	<h1>Bienvenido al blog de superheroes!</h1>
+{%extends 'base.html'%}
+
+{%block titulo%}
+	Poké-Blog
+{%endblock titulo%}
+
+{%block content%}
+<h1>Bienvenido al blog de superheroes!</h1>
 
 	{%for entrada in entradas%}
 	<span>{{entrada.autor}}</span>
@@ -13,7 +15,4 @@
 	{%empty%}
 	<h2>Aún no hay posts! :(</h2>
 	{%endfor%}
-
-
-</body>
-</html>
+{%endblock content%}
