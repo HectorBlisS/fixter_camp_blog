@@ -7,12 +7,16 @@
 {%block content%}
 <h1>Bienvenido al blog de superheroes!</h1>
 
-	{%for entrada in entradas%}
+{%for entrada in entradas%}
 	<span>{{entrada.autor}}</span>
-	<h2>{{entrada.titulo}}</h2>
+	<a href="{{entrada.get_absolute_url}}"><h2>{{entrada.titulo}}</h2></a>
 	<p>{{entrada.cuerpo}}</p>
 	<h4>{{entrada.fecha}}</h4>
 	{%empty%}
 	<h2>Aún no hay posts! :(</h2>
-	{%endfor%}
+{%endfor%}
 {%endblock content%}
+
+
+
+

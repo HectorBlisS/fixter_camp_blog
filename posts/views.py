@@ -15,10 +15,39 @@ class ListView(View):
 		return render(request,template_name,context)
 
 class DetailView(View):
-	def get(self,request,id):
+	def get(self,request,slug):
 		template_name = "detalle.html"
-		post = Post.objects.get(pk=id)
+		post = Post.objects.get(slug=slug)
 		context = {
 		'post':post
 		}
 		return render(request,template_name,context)
+
+
+class NuevoPost(View):
+	def get(self,request):
+		template_name = 'nuevo.html'
+		context = {}
+		return render(request,template_name,context)
+
+	def post(self,request):
+		titulo = request.POST.get('titulo')
+		cuerpo = request.POST.get('cuerpo')
+		post = Post()
+		post.titulo = titulo
+		post.cuerpo = cuerpo
+		post.autor = request.user
+		post.save()
+
+
+		template_name = 'nuevo.html'
+		context = {'guardado':True}
+
+		return render(request,template_name,context) 
+
+
+
+
+
+
+

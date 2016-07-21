@@ -1,13 +1,12 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from main import views
-from posts import views as views2
+from posts import urls as postsUrls
+from main import urls as mainUrls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.Home.as_view()),
-    url(r'^blog/$',views2.ListView.as_view()),
-    url(r'^detalle/(?P<id>\d+)/$',
-    	views2.DetailView.as_view(),
-    	name="detalle"),
+   	url(r'^',include(mainUrls,namespace='main')),
+    url(r'^blog/',include(postsUrls, namespace='posts')),
+    
 ]

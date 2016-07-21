@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+{%if guardado%}
+
+<h1>Tu post ha sido guardado!</h1>
+
+{%else%}
+
+<form action="." method="post">
+{%csrf_token%}
+<input type="text" name="titulo" placeholder="Escribe el titulo del post">
+<textarea name="cuerpo" placeholder="Escribe e inspirate"></textarea>
+<input type="submit" value="Publicar">
+</form>
+
+{%endif%}
+
+{%endblock content%}
